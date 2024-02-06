@@ -33,16 +33,28 @@ int main() {
 	// Context -> [abstract] an object that holds the whole of OpenGL.
 	glfwMakeContextCurrent(window);
 
+	// Glad!!
 	gladLoadGL();
 
+	// Area of window we want OpenGL to render in.
+	// Bottom left (0,0) to top right (800,800)
 	glViewport(0, 0, 800, 800);
 	
+	// Teal normalize dec. rbg color
 	glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
+
+	// Execute command!
 	glClear(GL_COLOR_BUFFER_BIT);
 
+	//Swap the back buffer to the front.
 	glfwSwapBuffers(window);
+
+	// Ends on condition the window should close.
 	while (!glfwWindowShouldClose(window))
 	{
+		// Process all pooled events.
+		// Such as window appearing, resizing...etc 
+		// Otherwise it will just be unresponsive.
 		glfwPollEvents();
 	}
 
