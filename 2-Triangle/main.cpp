@@ -2,6 +2,8 @@
 #include<glad/glad.h>
 #include<GLFW/glfw3.h>
 
+// OpenGL does not provide us with defaults for the vertex/fragment shaders. We'll have to 'write our own'
+// Shaders will be discussed later.
 const char* vertexShaderSource = "#version 330 core\n"
 "layout (location = 0) in vec3 aPos;\n"
 "void main()\n"
@@ -33,11 +35,12 @@ int main() {
 	// Compatability -> All modern/outdated functions
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
+	// GLfloat is more standardized. Safer. 
 	GLfloat vertices[] =
 	{
-		-0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f,
-		0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f,
-		0.0f, 0.5f * float(sqrt(3)) * 2 / 3, 0.0f
+		-0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f,     // Left corner
+		0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f,      // Right corner
+		0.0f, 0.5f * float(sqrt(3)) * 2 / 3, 0.0f    // Center
 	};
 
 	// Creates the window with dimensions [width/height], name, fullscreen (bool), and ??
@@ -61,28 +64,51 @@ int main() {
 	// Bottom left (0,0) to top right (800,800)
 	glViewport(0, 0, 800, 800);
 
+	// Shaders are an OpenGL object which are in the backgroun in memory.
+	// We access them by references (aka value).
+	
+	// Create a value (aka reference) to store our vertex shader in.
+	// glCreateShader returns a reference value. You should specify which type of shader you want.
+	// We want a VERTEX shader.
 	GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
+	// Reference value, 1 string for the whole shader, point to source code, blah blah blah write NULL)
 	glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
+	// We must complie it right now
 	glCompileShader(vertexShader);
 
+	// Same thing, only for fragment shader.
 	GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 	glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
 	glCompileShader(fragmentShader);
 
+	// In order to actually use both of the shaders, we'll have to wrap themn up in a 'shaderProgram'
 	GLuint shaderProgram = glCreateProgram();
 
+	// Attachment
 	glAttachShader(shaderProgram, vertexShader);
 	glAttachShader(shaderProgram, fragmentShader);
 
+	// Link (wrap them up)
 	glLinkProgram(shaderProgram);
 
+	// Delete shaders we've created since they are already in the program itself. 
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
 
+	// We will begin to tell how OpenGL can interpret our vertices. 
+	
+	// Sending stuff from CPU -> GPU we want big batches = buffers.
 
+	// Vertex buffer object = VBO
+	// VBO is an array of references, but for now we'll just keep it like this.
 	GLuint VAO, VBO;
 
+	// 1 object, point to reference
 	glGenVertexArrays(1, &VAO);
+
+	// Binding: we make a certain object the current object. 
+	// Whenever we execute a function that would modify that type of object, it modifies that current object (aka the binded object)
+
 	glGenBuffers(1, &VBO);
 
 	glBindVertexArray(VAO);
