@@ -13,7 +13,7 @@ const char* fragmentShaderSource = "#version 330 core\n"
 "out vec4 FragColor;\n"
 "void main()\n"
 "{\n"
-"    FragColor = vec4(0.8f, 0.3f, 0.03f, 1.0f);\n"
+"    FragColor = vec4(0.8f, 0.3f, 0.02f, 1.0f);\n"
 "}\n\0";
 
 int main() {
@@ -36,7 +36,7 @@ int main() {
 	
 
 	// Creates the window with dimensions [width/height], name, fullscreen (bool), and ??
-	GLFWwindow* window = glfwCreateWindow(800, 800, "Hi Triangle", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(800, 800, "Hi Triangllie", NULL, NULL);
 
 	// Error checking if window fails
 	if (window == NULL) {
@@ -78,10 +78,10 @@ int main() {
 	{
 		-0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f,    // Lower left corner
 		0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f,     // Lower right corner
-		0.0f, 0.5f * float(sqrt(3)) * 2 / 3, 0.0f   // Upper corner
+		0.0f, 0.5f * float(sqrt(3)) * 2 / 3, 0.0f,   // Upper corner
 		-0.5f / 2, 0.5f * float(sqrt(3)) / 6, 0.0f, // Inner left
 		0.5f / 2, 0.5f * float(sqrt(3)) / 6, 0.0f,  // Inner right
-		0.0f / -0.5f * float(sqrt(3)) / 3, 0.0f     // Inner down
+		0.0f,  -0.5f * float(sqrt(3)) / 3, 0.0f     // Inner down
 	};
 
 	GLuint indices[] = {
