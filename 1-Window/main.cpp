@@ -3,7 +3,7 @@
 #include<GLFW/glfw3.h>
 
 int main() {
-	
+
 	glfwInit();
 
 	// Specifies the major version of OpenGL we are using.
@@ -23,7 +23,7 @@ int main() {
 	GLFWwindow* window = glfwCreateWindow(800, 800, "Hi Sean", NULL, NULL);
 
 	// Error checking if window fails
-	if (window == NULL)	{
+	if (window == NULL) {
 		std::cout << "Failed to create GLFW Window" << std::endl;
 		glfwTerminate();
 		return -1;
@@ -39,7 +39,7 @@ int main() {
 	// Area of window we want OpenGL to render in.
 	// Bottom left (0,0) to top right (800,800)
 	glViewport(0, 0, 800, 800);
-	
+
 	// Teal normalize dec. rbg color
 	glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
 

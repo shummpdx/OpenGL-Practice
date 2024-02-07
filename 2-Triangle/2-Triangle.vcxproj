@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{7708058a-2099-4101-8ce0-d644e08345a4}</ProjectGuid>
-    <RootNamespace>OpenGL</RootNamespace>
+    <ProjectGuid>{6ea9acd3-19ef-4362-a789-f1fcea93cd0a}</ProjectGuid>
+    <RootNamespace>My2Triangle</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -71,12 +71,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Sean\Documents\OpenGL_YT\OpenGL\Libraries\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Sean\Documents\OpenGL_YT\OpenGL\Libraries\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Sean\Desktop\2024 Projects\OpenGL\Libraries\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Sean\Desktop\2024 Projects\OpenGL\Libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\Sean\Documents\OpenGL_YT\OpenGL\Libraries\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Sean\Documents\OpenGL_YT\OpenGL\Libraries\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Sean\Desktop\2024 Projects\OpenGL\Libraries\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Sean\Desktop\2024 Projects\OpenGL\Libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
